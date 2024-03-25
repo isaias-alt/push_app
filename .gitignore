@@ -41,5 +41,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+<<<<<<< HEAD
 
 /lib/firebase_options.dart
+=======
+>>>>>>> parent of d0a6f1d (add firebase)
