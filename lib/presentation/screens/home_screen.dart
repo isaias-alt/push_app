@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:push_app/presentation/blocs/notifications/notifications_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
-  static const name = 'home';
   const HomeScreen({super.key});
 
   @override
@@ -44,7 +44,7 @@ class _HomeView extends StatelessWidget {
           leading: notification.imageUrl != null
               ? Image.network(notification.imageUrl!)
               : null,
-          onTap: () {},
+          onTap: () => context.push('/details/${notification.messageId}'),
         );
       },
     );
