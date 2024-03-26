@@ -46,11 +46,12 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   void _getFCMToken() async {
     if (state.status != AuthorizationStatus.authorized) return;
 
-    final token = messaging.getToken();
+    final token = await messaging.getToken();
     print('Token: $token');
   }
 
   void _handleRemoteMessage(RemoteMessage message) {
+    print('Message data: ${message.data}');
     if (message.notification == null) return;
     print('Message also contained a notification: ${message.notification}');
   }
