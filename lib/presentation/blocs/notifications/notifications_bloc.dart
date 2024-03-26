@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +8,12 @@ import 'package:push_app/firebase_options.dart';
 
 part 'notifications_event.dart';
 part 'notifications_state.dart';
+
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+
+  print("Handling a background message: ${message.messageId}");
+}
 
 class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
